@@ -21,7 +21,6 @@ it also provides a number of preset styles for common card sections, including:
 */
 
 @Component({
-  moduleId: module.id,
   selector: 'md-card',
   templateUrl: 'card.html',
   styleUrls: ['card.css'],
@@ -46,7 +45,6 @@ TODO(kara): update link to demo site when it exists
 */
 
 @Component({
-  moduleId: module.id,
   selector: 'md-card-header',
   templateUrl: 'card-header.html',
   encapsulation: ViewEncapsulation.None,
@@ -66,7 +64,6 @@ TODO(kara): update link to demo site when it exists
 */
 
 @Component({
-  moduleId: module.id,
   selector: 'md-card-title-group',
   templateUrl: 'card-title-group.html',
   encapsulation: ViewEncapsulation.None,

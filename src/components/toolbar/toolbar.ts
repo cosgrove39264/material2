@@ -8,7 +8,6 @@ import {Renderer} from '@angular/core';
 import {ElementRef} from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'md-toolbar',
   templateUrl: 'toolbar.html',
   styleUrls: ['toolbar.css'],

@@ -209,7 +209,6 @@ export class MdButtonToggleGroupMultiple {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'md-button-toggle',
   templateUrl: 'button-toggle.html',
   styleUrls: ['button-toggle.css'],
