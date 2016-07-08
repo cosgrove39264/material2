@@ -16,8 +16,8 @@
 </div>
 <div class="md-tab-body-wrapper">
   <div class="md-tab-body"
-       *ngFor="let tab of tabs; let i = index"
-       [id]="getTabContentId(i)"
+       *ngFor="let tab of _tabs; let i = index"
+       [id]="_getTabContentId(i)"
        [class.md-active]="selectedIndex == i"
        [attr.aria-labelledby]="getTabLabelId(i)">
     <template role="tabpanel" [portalHost]="tab.content" [ngIf]="selectedIndex == i"></template>

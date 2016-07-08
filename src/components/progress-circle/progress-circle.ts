@@ -53,11 +53,11 @@ export class MdProgressCircle implements OnDestroy {
    * because voiceover does not report the progress indicator as indeterminate if the aria min
    * and/or max value are number values.
    */
-  get ariaValueMin() {
+  get _ariaValueMin() {
     return this.mode == 'determinate' ? 0 : null;
   }
 
-  get ariaValueMax() {
+  get _ariaValueMax() {
     return this.mode == 'determinate' ? 100 : null;
   }
 
