@@ -36,7 +36,6 @@ export {
   LIVE_ANNOUNCER_ELEMENT_TOKEN
 } from './a11y/live-announcer';
 
-
 export {
   MdUniqueSelectionDispatcher,
   MdUniqueSelectionDispatcherListener

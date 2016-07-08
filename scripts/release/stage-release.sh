@@ -9,11 +9,11 @@ set -exu
 
 
 # Clear dist/ and deploy/ so that we guarantee there are no stale artifacts.
-#rm -rf ./dist
-#rm -rf ./deploy
-#
-## Perform a build with the modified tsconfig.json.
-#ng build
+rm -rf ./dist
+rm -rf ./deploy
+
+# Perform a build with the modified tsconfig.json.
+ng build
 
 # Inline the css and html into the component ts files.
 npm run inline-resources

@@ -9,35 +9,6 @@ const Angular2App = require('angular-cli/lib/broccoli/angular2-app');
 const Funnel = require('broccoli-funnel');
 const MergeTree = require('broccoli-merge-trees');
 const autoPrefixerTree = require('broccoli-autoprefixer');
-const BroccoliPlugin = require('broccoli-plugin');
-
-
-class NgcBroccoli extends BroccoliPlugin {
-  constructor(subTree, options) {
-    super([subTree], {});
-    this._options = options;
-  }
-
-  build() {
-    require('reflect-metadata');
-    const tsc = require('@angular/tsc-wrapped');
-    const CodeGenerator = require('@angular/compiler-cli').CodeGenerator;
-
-    function codegen(ngOptions, program, host) {
-      return CodeGenerator.create(ngOptions, program, host).codegen();
-    }
-
-    return tsc.main('./src/demo-app', path.relative(process.cwd(), this.inputPaths[0], './src/demo-app'), codegen)
-      .then(function (code) {
-        console.log(123, code);
-      })
-      .catch(function (e) {
-        console.error(e.stack);
-        console.error('Compilation failed');
-        process.exit(1);
-      });
-  }
-}
 
 
 module.exports = function(defaults) {
@@ -52,20 +23,7 @@ module.exports = function(defaults) {
   // Include the scss sources in the output for when we publish.
   const scssSources = new Funnel('src', {include: ['**/*.scss']});
 
-  let trees = new MergeTree([appTree, cssAutoprefixed, scssSources], { overwrite: true });
-
-  if (process.env['MD_NGC']) {
-    trees = new MergeTree([
-      trees,
-      new Funnel('src', {include: ['demo-app/**/*'], destDir: 'src'}),
-    ]);
-
-    trees = new NgcBroccoli(trees, {
-      project: 'src/demo-app'
-    });
-  }
-
-  return trees;
+  return new MergeTree([appTree, cssAutoprefixed, scssSources], { overwrite: true });
 };
 
 
@@ -121,8 +79,6 @@ function _buildAppTree(defaults) {
       inputNode = _buildE2EAppInputTree();
       sourceDir = 'src/e2e-app';
       break;
-
-    case 'ngc':
     default:
       inputNode = _buildDemoAppInputTree();
       sourceDir = 'src/demo-app';
