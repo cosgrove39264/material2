@@ -1,1 +1,7 @@
-menu
+<md-menu>
+    <button md-button> UserDrop </button>
+    <md-menu-content>
+        <button md-button (click)="action();">Action</button>
+        <a md-button [routerLink]="['/menu']">Menu</a>
+    </md-menu-content>
+</md-menu>
