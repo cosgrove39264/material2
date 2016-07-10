@@ -12,6 +12,10 @@ import {Component, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class MdMenu {
+  constructor (){
+    alert("MdMenu");
+  }
+
   visible: boolean = false;
   toggle() {
     this.visible = !this.visible;
@@ -26,7 +30,9 @@ export class MdMenu {
   encapsulation: ViewEncapsulation.None
 })
 export class MdMenuContent  {
-
+  constructor() {
+    console.log("MdMenuContent");
+  }
 }
 
 export const MD_MENU_DIRECTIVES = [MdMenu,MdMenuContent];
